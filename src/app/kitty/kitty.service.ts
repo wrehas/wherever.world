@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Headers, RequestOptions, Http} from "@angular/http";
-import {Observable, ReplaySubject, Subject} from "rxjs";
+import { Observable, ReplaySubject, Subject } from "rxjs";
+import 'rxjs/add/operator/reduce';
+import 'rxjs/add/operator/do';
 
 
 @Injectable()
@@ -19,11 +21,14 @@ export class KittyService {
 // headers.append('Access-Control-Allow-Origin', '*');  
 // let options = new RequestOptions({ headers: headers });    
 //     return this.http.get(this.apiEndpoint, options)
-   return this.http.get(this.apiEndpoint)
+    return this.http.get(this.apiEndpoint)
     
-      .map(response => 
-         response.json()
+      .map(response =>
+        response.json()
       )
+      .map(val => val.Quotes)
+      .reduce((acc, quote) => { return (quote < acc) ? quote : acc })
+    .do(data=>console.log(data))
 }
 
 }
