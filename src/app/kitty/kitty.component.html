@@ -1,0 +1,9 @@
+<h1>
+  kitty
+</h1>
+<div *ngIf="flights">
+<div *ngFor="let flight of flights">
+<p>{{flight.QuoteId}}</p>
+<p>Min Price: {{flight.MinPrice}}</p>
+</div>
+</div>
