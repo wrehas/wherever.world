@@ -4,6 +4,7 @@ import { Observable, ReplaySubject, Subject } from "rxjs";
 import 'rxjs/add/operator/reduce';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/first';
+import 'rxjs/add/operator/filter';
 
 @Injectable()
 
@@ -24,6 +25,15 @@ export class KittyService {
     return this.http.get(this.apiEndpoint)
     
       .map(response => response.json())
+      .map(obj =>
+      {
+      let quotes =  Observable.of(...obj.Quotes)
+        .reduce((acc, quote) => acc.MinPrice == null ? quote : ((quote.MinPrice < acc.MinPrice) ? quote : acc), {MinPrice: null})
+      }  
+        
+        
+      )
+     // .do(res=>console.log('how many it was before:', res.Quotes))
       .flatMap(json => Observable.of(...json.Quotes))
       .reduce((acc, quote) => acc.MinPrice == null ? quote : ((quote.MinPrice < acc.MinPrice) ? quote : acc), {MinPrice: null})
       
