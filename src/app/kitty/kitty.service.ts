@@ -3,7 +3,7 @@ import {Headers, RequestOptions, Http} from "@angular/http";
 import { Observable, ReplaySubject, Subject } from "rxjs";
 import 'rxjs/add/operator/reduce';
 import 'rxjs/add/operator/do';
-
+import 'rxjs/add/operator/first';
 
 @Injectable()
 
@@ -23,12 +23,10 @@ export class KittyService {
 //     return this.http.get(this.apiEndpoint, options)
     return this.http.get(this.apiEndpoint)
     
-      .map(response =>
-        response.json()
-      )
-      .map(val => val.Quotes)
-      .reduce((acc, quote) => { return (quote < acc) ? quote : acc })
-    .do(data=>console.log(data))
+      .map(response => response.json())
+      .flatMap(json => Observable.of(...json.Quotes))
+      .reduce((acc, quote) => acc.MinPrice == null ? quote : ((quote.MinPrice < acc.MinPrice) ? quote : acc), {MinPrice: null})
+      
 }
 
 }

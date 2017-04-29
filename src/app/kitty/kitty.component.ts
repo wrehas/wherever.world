@@ -20,7 +20,7 @@ export class KittyComponent implements OnInit {
 
   ngOnInit() {
     this.kittyService.getFlights()
-      .subscribe();
+      .subscribe(subscr => console.log(subscr));
       // .subscribe(flights => this.flights = flights.Quotes);
     //   .subscribe(flights => {
     //     console.log(flights)
