@@ -16,26 +16,33 @@ export class KittyService {
   }
 
   getFlights() {
-//     let headers = new Headers({ 'Content-Type': 'application/json' });
-// headers.append('Access-Control-Allow-Headers', 'Content-Type');
-// headers.append('Access-Control-Allow-Methods', 'GET');
-// headers.append('Access-Control-Allow-Origin', '*');  
-// let options = new RequestOptions({ headers: headers });    
-//     return this.http.get(this.apiEndpoint, options)
     return this.http.get(this.apiEndpoint)
     
       .map(response => response.json())
-      .map(obj =>
+      .flatMap(obj =>
       {
-      let quotes =  Observable.of(...obj.Quotes)
-        .reduce((acc, quote) => acc.MinPrice == null ? quote : ((quote.MinPrice < acc.MinPrice) ? quote : acc), {MinPrice: null})
-      }  
-        
-        
-      )
-     // .do(res=>console.log('how many it was before:', res.Quotes))
-      .flatMap(json => Observable.of(...json.Quotes))
-      .reduce((acc, quote) => acc.MinPrice == null ? quote : ((quote.MinPrice < acc.MinPrice) ? quote : acc), {MinPrice: null})
+        let places = [];
+        Observable.of(...obj.Places)
+          .map(place => {
+            return {placeId: place.PlaceId, name: place.Name};
+          })
+          .toArray()
+          .subscribe(x => places = x);
+          
+        return Observable.of(...obj.Quotes)
+          .map(quote => {
+            return {
+              quote: quote, 
+              place: places.find(place => place.placeId == quote.OutboundLeg.DestinationId)
+            };
+          });
+      })
+      .reduce((acc, quoteObj) => {
+        return acc.quote.MinPrice == null 
+          ? quoteObj 
+          : ((quoteObj.quote.MinPrice < acc.quote.MinPrice) ? quoteObj : acc);
+      }, 
+      {quote: {MinPrice: null}, place: null});
       
 }
 
