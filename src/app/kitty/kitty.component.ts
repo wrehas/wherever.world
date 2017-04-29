@@ -12,16 +12,17 @@ import 'rxjs/add/operator/map';
 })
 export class KittyComponent implements OnInit {
 
-  quotes: any[];
-  places: any[];
-
+  public flight : any;
 
   constructor(private kittyService:KittyService) { }
 
   ngOnInit() {
     this.kittyService.getFlights()
       .subscribe(
-        subscr => console.log(subscr), 
+        subscr => {
+          this.flight = subscr;
+          console.log(subscr);
+        },
         err => console.log(err));
   }
 

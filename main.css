@@ -1,0 +1,25 @@
+@charset 'UTF-8';
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    font-size: 100%;
+    font-weight: normal;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-size-adjust: none;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    hyphens: none;
+    outline: none;
+}
+
+.container {
+    background: rgba(216, 188, 205, 0.8);
+    height: 1000px;
+}
+
+.image {
+    background: #ffffff url("../img/palms-sunset.jpg");
+}
