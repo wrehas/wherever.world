@@ -16,6 +16,7 @@ declare var google: any;
 export class KittyComponent implements OnInit {
 
   public flights : any[] = [];
+  private coordinates: any[] = [];
   private gMapApiKey: string = 'AIzaSyBoGIkzOAHulF1qinLaP-lk1nSfflxiNGg';
 
   constructor(private kittyService:KittyService) { }
@@ -31,6 +32,11 @@ export class KittyComponent implements OnInit {
             flight.location = locations.find(location => location.Id == flight.place.code);
             flight.traveller = traveller;
             this.flights.push(flight);
+
+            let coords: string[] = flight.location.Location.split(", ");
+            this.coordinates.push({lat: coords[0], lon: coords[1]});
+
+            console.log(coords);
             console.log(flight);
           },
           err => console.log(err)
