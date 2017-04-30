@@ -4139,9 +4139,9 @@ export class Constants {
 
     public static travellers : any[] = [
         [{ "name": "Gregor", "surname": "Pinkman", "startDate": "2017-06-05", "endDate": "2017-06-08", "startCity": "London" }, { "name": "Zoey", "surname": "Simpson", "startDate": "2017-07-30", "endDate": "2017-08-02", "startCity": "London" }],
-        [{ "name": "Daenerys", "surname": "Stark", "startDate": "2017-06-04", "endDate": "2017-06-07", "startCity": "London" }, { "name": "Michelle", "surname": "Walker", "startDate": "2017-06-02", "endDate": "2017-06-05", "startCity": "London" }]//,
-        // [{ "name": "Arya", "surname": "Snow", "startDate": "2017-07-20", "endDate": "2017-07-23", "startCity": "London" }, { "name": "Jack", "surname": "Anderson", "startDate": "2017-07-19", "endDate": "2017-07-22", "startCity": "London" }],
-        // [{ "name": "Sandor", "surname": "Bonny", "startDate": "2017-06-15", "endDate": "2017-06-18", "startCity": "London" }, { "name": "Tyrion", "surname": "Sellers", "startDate": "2017-06-02", "endDate": "2017-06-05", "startCity": "London" }],
+        [{ "name": "Daenerys", "surname": "Stark", "startDate": "2017-06-04", "endDate": "2017-06-07", "startCity": "London" }, { "name": "Michelle", "surname": "Walker", "startDate": "2017-06-02", "endDate": "2017-06-05", "startCity": "London" }],
+        [{ "name": "Arya", "surname": "Snow", "startDate": "2017-07-20", "endDate": "2017-07-23", "startCity": "London" }, { "name": "Jack", "surname": "Anderson", "startDate": "2017-07-19", "endDate": "2017-07-22", "startCity": "London" }],
+        [{ "name": "Sandor", "surname": "Bonny", "startDate": "2017-06-15", "endDate": "2017-06-18", "startCity": "London" }, { "name": "Tyrion", "surname": "Sellers", "startDate": "2017-06-02", "endDate": "2017-06-05", "startCity": "London" }],
         // [{ "name": "Ethan", "surname": "Anderson", "startDate": "2017-07-01", "endDate": "2017-07-04", "startCity": "London" }, { "name": "Jack", "surname": "Rackham", "startDate": "2017-06-11", "endDate": "2017-06-14", "startCity": "London" }],
         // [{ "name": "Sarah", "surname": "Peltier", "startDate": "2017-06-19", "endDate": "2017-06-22", "startCity": "London" }, { "name": "Sarah", "surname": "Simpson", "startDate": "2017-06-21", "endDate": "2017-06-24", "startCity": "London" }],
         // [{ "name": "Michelle", "surname": "Johnson", "startDate": "2017-06-24", "endDate": "2017-06-27", "startCity": "London" }, { "name": "Sarah", "surname": "Tremblay", "startDate": "2017-06-17", "endDate": "2017-06-20", "startCity": "London" }],
