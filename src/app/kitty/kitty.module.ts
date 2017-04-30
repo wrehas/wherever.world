@@ -13,8 +13,7 @@ import {MdToolbarModule, MdButtonModule, MdCheckboxModule } from '@angular/mater
 export const routerConfig: Routes = [
   {
     path: '',
-    component: KittyComponent, 
-    // data: { title: "PackBud Jobs" } 
+    component: KittyComponent
   },
 ]
 

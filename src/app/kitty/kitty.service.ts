@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Headers, RequestOptions, Http} from "@angular/http";
 import { Observable, ReplaySubject, Subject } from "rxjs";
+import { Constants } from '../constants';
 import 'rxjs/add/operator/reduce';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/first';
@@ -27,7 +28,7 @@ export class KittyService {
         let places = [];
         Observable.of(...obj.Places)
           .map(place => {
-            return {placeId: place.PlaceId, name: place.Name};
+            return {placeId: place.PlaceId, name: place.Name, code: place.IataCode};
           })
           .toArray()
           .subscribe(x => places = x);
@@ -57,5 +58,7 @@ export class KittyService {
       return null;
     }
   }
+
+  
 
 }
