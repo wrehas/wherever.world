@@ -13,20 +13,26 @@ import { Constants } from "../constants";
 })
 export class KittyComponent implements OnInit {
 
-  public flight : any;
+  public flights : any[] = [];
 
   constructor(private kittyService:KittyService) { }
 
   ngOnInit() {
-    var locations = Constants.locations;
-    this.kittyService.getFlights()
-      .subscribe(
-        subscr => {
-          this.flight = subscr;
-          this.flight.location = locations.find(location => location.Id == this.flight.place.code);
-          console.log(this.flight);
-        },
-        err => console.log(err));
+    let locations: any[] = Constants.locations;
+    let travellers: any[] = Constants.travellers;
+    travellers.forEach(traveller => {
+      this.kittyService.getFlight(traveller[0].startDate, traveller[0].endDate)
+        .subscribe(
+          subscr => {
+            let flight: any = subscr;
+            flight.location = locations.find(location => location.Id == flight.place.code);
+            flight.traveller = traveller;
+            this.flights.push(flight);
+            console.log(flight);
+          },
+          err => console.log(err)
+        );
+      })
   }
 
 }
