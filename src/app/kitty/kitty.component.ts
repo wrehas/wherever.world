@@ -39,7 +39,7 @@ export class KittyComponent implements OnInit {
             this.flights.push(flight);
 
             let coords: string[] = flight.location.Location.split(", ");
-            this.coordinates.push({lat: parseFloat(coords[0]), lng: parseFloat(coords[1])});
+            this.coordinates.push({lat: parseFloat(coords[1]), lng: parseFloat(coords[0])});
 
             console.log(coords);
             console.log(flight);
