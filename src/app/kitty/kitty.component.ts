@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Rx';
 // import
 import { KittyService } from './kitty.service';
 import 'rxjs/add/operator/map';
+import { Constants } from "../constants";
 
 
 @Component({
@@ -13,10 +14,12 @@ import 'rxjs/add/operator/map';
 export class KittyComponent implements OnInit {
 
   public flight : any;
+  public locations : any[];
 
   constructor(private kittyService:KittyService) { }
 
   ngOnInit() {
+    this.locations = Constants.locations;
     this.kittyService.getFlights()
       .subscribe(
         subscr => {

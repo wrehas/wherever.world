@@ -12,8 +12,7 @@ import {MdButtonModule, MdCheckboxModule} from '@angular/material';
 export const routerConfig: Routes = [
   {
     path: '',
-    component: KittyComponent, 
-    // data: { title: "PackBud Jobs" } 
+    component: KittyComponent
   },
 ]
 
