@@ -207,7 +207,8 @@ export class KittyComponent implements OnInit {
           
     var map = new google.maps.Map(document.getElementById('gmap'), {
           zoom: 3,
-          center: {lat: -28.024, lng: 140.887}
+          // center: { lat: -28.024, lng: 140.887 }
+          center: {lat: 51.508742,lng:  -0.120850}
         });
 
         // Create an array of alphabetical characters used to label the markers.
