@@ -7,7 +7,8 @@ import { KittyService } from './kitty.service';
 
 import { RouterModule, Routes } from '@angular/router';
 
-import {MdButtonModule, MdCheckboxModule} from '@angular/material';
+import {MdToolbarModule, MdButtonModule, MdCheckboxModule } from '@angular/material';
+
 
 export const routerConfig: Routes = [
   {
@@ -21,7 +22,8 @@ export const routerConfig: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routerConfig),
-    MdButtonModule, MdCheckboxModule
+    MdButtonModule, MdCheckboxModule,
+    MdToolbarModule
   ],
   declarations: [KittyComponent],
   providers: [KittyService]
