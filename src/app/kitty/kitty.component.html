@@ -2,8 +2,11 @@
 <div id="gmap" style="height:700px">
 
 </div>
-<div *ngIf="flight">
-    <p>{{flight.quote.QuoteId}}</p>
-    <p>Min Price: {{flight.quote.MinPrice}}</p>
-    <p>Country: {{flight.place.name}}</p>
+
+<div *ngFor="let flight of flights">
+    <div *ngIf="flight">
+        <p>{{flight.quote.QuoteId}}</p>
+        <p>Min Price: {{flight.quote.MinPrice}}</p>
+        <p>Country: {{flight.place.name}}</p>
+    </div>
 </div>
