@@ -11,7 +11,7 @@ import 'rxjs/add/operator/filter';
 
 export class KittyService {
   apiEndpoint: string = "http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/uk/eur/en-US/LON/anywhere/";
-  apiKey: string = "?apikey=prtl6749387986743898559646983194";
+  apiKey: string = "?apikey=cm415982973361248809763878995413";
   constructor(private http: Http) { 
 
     
