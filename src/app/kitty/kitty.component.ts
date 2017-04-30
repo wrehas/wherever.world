@@ -44,7 +44,10 @@ export class KittyComponent implements OnInit {
             console.log(coords);
             console.log(flight);
           },
-          err => console.log(err)
+          err => console.log(err),
+          () => {
+            this.gmapInint();
+          }
         );
       })
     
@@ -195,7 +198,14 @@ export class KittyComponent implements OnInit {
 
 
 
-        var map = new google.maps.Map(document.getElementById('gmap'), {
+        
+   
+  }
+  
+
+  gmapInint() {
+          
+    var map = new google.maps.Map(document.getElementById('gmap'), {
           zoom: 3,
           center: {lat: -28.024, lng: 140.887}
         });
@@ -232,7 +242,7 @@ export class KittyComponent implements OnInit {
         // Note: The code uses the JavaScript Array.prototype.map() method to
         // create an array of markers based on a given "locations" array.
         // The map() method here has nothing to do with the Google Maps API.
-        var markers = gLocations.map(function(location, i) {
+        var markers = this.coordinates.map(function(location, i) {
           return new google.maps.Marker({
             position: location,
             label: labels[i % labels.length]
@@ -247,11 +257,7 @@ export class KittyComponent implements OnInit {
         );
       
     
-   
-  }
-  
-
-        
+        }
 
         
 
